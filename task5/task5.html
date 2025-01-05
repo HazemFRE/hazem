@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .menu .logo {
+            font-size: 24px;
+        }
+
+        .menu .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            display: none; /* إخفاء الأيقونة في الشاشات الكبيرة */
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end; /* محاذاة العناصر إلى اليمين في الشاشات الكبيرة */
+            padding: 10px;
+            background-color: red;
+            width: 100%;
+        }
+
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            .menu .hamburger {
+                display: block; /* إظهار الأيقونة في الشاشات الصغيرة */
+            }
+
+            .menu-items {
+                display: none; /* إخفاء القائمة في الشاشات الصغيرة */
+                flex-direction: column;
+                align-items: center; /* محاذاة العناصر إلى الوسط */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background-color: red;
+                text-align: center; /* محاذاة النص إلى الوسط */
+            }
+
+            .menu-items a {
+                padding: 10px 0;
+                width: 100%; /* جعل العناصر تأخذ العرض الكامل */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">Logo</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="menu-items" id="menuItems">
+            <a href="#">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menuItems = document.getElementById('menuItems');
+            if (menuItems.style.display === 'flex') {
+                menuItems.style.display = 'none';
+            } else {
+                menuItems.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+
+</html>
